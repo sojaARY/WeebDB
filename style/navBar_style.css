@@ -1,0 +1,42 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav_bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 95%;
+  background-color: #6444f2;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 15px 20px;
+  gap: 50px;
+  color: white;
+}
+.nav_bar a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Darken background on hover */
+  text-decoration: none;
+}
+
+.nav_right {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.nav_right_search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  background-color: white;
+  color: #b3b3b3;
+  height: 60px;
+  font-weight: normal;
+}
