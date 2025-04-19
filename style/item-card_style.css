@@ -1,0 +1,31 @@
+/* Used in aniListPg.html & Maybe for other websites too*/
+.item-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80vw;
+  height: 30vh;
+  padding: 15px;
+  background-color: #5744ad;
+  gap: 20px;
+  margin: 20px 0;
+}
+.item-card-img {
+  max-height: 100%;
+  max-width: 19vh;
+  background-color: white;
+}
+.item-card-text-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.item-card-h-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.item-card-c-text {
+  color: #aba2d6;
+  padding-left: 20px;
+  font-size: 1.5rem;
+}

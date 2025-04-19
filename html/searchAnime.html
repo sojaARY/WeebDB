@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>WeebDB</title>
-    <!--Front Page Stylesheet-->
-    <link rel="stylesheet" href="../style/front_pg_style.css" />
+    <!--Item Card Stylesheet-->
+    <link rel="stylesheet" href="../style/item-card_style.css" />
     <!--Navigation Bar Stylesheet-->
     <link rel="stylesheet" href="../style/navBar_style.css" />
     <!--Body Stylesheet-->
@@ -50,7 +50,19 @@
       </div>
     </nav>
     <!--Anime List-->
-    <div class="content">Front Page</div>
+    <div class="content">
+      <div
+        class="head-text flex justify-between w-[80vw]"
+        style="margin: 20px 0"
+      >
+        <p>Anime List</p>
+        <p>Sort by Seasonal Top</p>
+      </div>
+      <div id="anime-list">
+        <!--Place Anime List-->
+      </div>
+    </div>
   </body>
   <script src="../script/navBar_script.js"></script>
+  <script src="../script/searchAnime_script.js"></script>
 </html>
