@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>WeebDB</title>
-    <!--Anime List Stylesheet-->
+    <!--Front Page Stylesheet-->
     <link rel="stylesheet" href="../style/front_pg_style.css" />
     <!--Navigation Bar Stylesheet-->
     <link rel="stylesheet" href="../style/navBar_style.css" />
+    <!--Body Stylesheet-->
+    <link rel="stylesheet" href="../style/body_style.css" />
     <link rel="icon" type="image/png" href="../img/Logo.png" />
   </head>
   <body class="body">
@@ -30,18 +32,23 @@
             type="text"
             placeholder="Search"
             class="px-3 py-2 border rounded"
+            id="searchBarItem"
             style="border-width: 0; outline: none; color: black"
+            autocomplete="off"
           />
-          <a href="#" class="pr-5 w-auto"
-            ><img
-              src="../img/magnifying_icon.png"
-              class="h-10 self-center"
+          <a
+            href="#"
+            class="pr-5 w-auto"
+            onclick="searchAnime()"
+            style="background-color: transparent"
+            ><img src="../img/magnifying_icon.png" class="h-10 self-center"
           /></a>
         </div>
         <a href="#">Sign Up/Login</a>
       </div>
     </nav>
     <!--Anime List-->
-    <div class="content"></div>
+    <div class="content">Anime List</div>
   </body>
+  <script src="../script/navBar_script.js"></script>
 </html>
