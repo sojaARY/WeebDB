@@ -10,6 +10,7 @@ function searchAnime() {
 
 searchBarItem.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
+    event.preventDefault();
     searchAnime();
   }
 });

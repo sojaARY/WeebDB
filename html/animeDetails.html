@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>WeebDB</title>
+    <!--Anime Details Stylesheet-->
+    <link rel="stylesheet" href="../style/animeDetails_style.css" />
+    <!--Navigation Bar Stylesheet-->
+    <link rel="stylesheet" href="../style/navBar_style.css" />
+    <!--Body Stylesheet-->
+    <link rel="stylesheet" href="../style/body_style.css" />
+    <link rel="icon" type="image/png" href="../img/Logo.png" />
+  </head>
+  <body class="body">
+    <!--Nav bar-->
+    <div class="logo">
+      <a href="frontpg.html">
+        <img src="../img/Logo.png" class="max-h-[20vh]" />
+      </a>
+    </div>
+    <nav class="nav_bar items-center p-4">
+      <div class="flex gap-4">
+        <a href="#">Anime</a>
+        <a href="#">Manga</a>
+        <a href="#">List</a>
+      </div>
+      <div class="nav_right">
+        <div class="nav_right_search flex">
+          <input
+            type="text"
+            placeholder="Search"
+            class="px-3 py-2 border rounded"
+            id="searchBarItem"
+            style="border-width: 0; outline: none; color: black"
+            autocomplete="off"
+          />
+          <a
+            href="#"
+            class="pr-5 w-auto"
+            onclick="searchAnime()"
+            style="background-color: transparent"
+            ><img src="../img/magnifying_icon.png" class="h-10 self-center"
+          /></a>
+        </div>
+        <a href="#">Sign Up/Login</a>
+      </div>
+    </nav>
+    <!--Selected Anime Details-->
+    <div class="content flex flex-col">
+      Anime Details
+      <div class="detail-section-1 flex flex-row">
+        <div class="s1-left flex flex-col">
+          <div id="anime-img"></div>
+          <div id="add-list-button"></div>
+        </div>
+        <div class="s1-right flex flex-col justify-start" id="detail-text">
+          <div id="title-text"></div>
+          <div class="flex flex-col" id="studio-text">
+            <p>Studio:</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../script/animeDetails.js"></script>
+</html>

@@ -31,8 +31,15 @@ async function displayAnime() {
 
   //Create a card for each anime
   data.data.forEach((anime) => {
-    const animeCardDiv = document.createElement("div");
+    const animeCardDiv = document.createElement("a");
+    animeCardDiv.href = "#";
     animeCardDiv.classList = "item-card";
+
+    animeCardDiv.addEventListener("click", (event) => {
+      event.preventDefault();
+      sessionStorage.setItem("selectedAnimeItem", anime.mal_id);
+      window.location.href = "../html/animeDetails.html";
+    })
 
     const animeImgDiv = document.createElement("img");
     animeImgDiv.classList = "item-card-img";
