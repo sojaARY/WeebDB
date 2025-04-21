@@ -1,0 +1,32 @@
+.s1-right {
+  margin-left: 5%;
+}
+
+#title-text {
+  font-size: 3.2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+#studio-text {
+  font-size: 2rem;
+}
+
+#anime-img {
+  border: 5px inset white;
+}
+
+#addToList {
+  border: 2px solid #5744ad;
+  border-radius: 50px;
+  background-color: #5744ad;
+  margin: 25px 20px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#addToList:hover {
+  border: 2px solid #433388;
+  background-color: #433388;
+  cursor: pointer;
+}

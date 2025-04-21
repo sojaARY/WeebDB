@@ -48,21 +48,34 @@
       </div>
     </nav>
     <!--Selected Anime Details-->
-    <div class="content flex flex-col">
-      Anime Details
-      <div class="detail-section-1 flex flex-row">
-        <div class="s1-left flex flex-col">
-          <div id="anime-img"></div>
-          <div id="add-list-button"></div>
+    <div class="content flex flex-col p-25">
+      <div class="detail-section-1 flex w-[100%]">
+        <div class="s1-left flex flex-col w-[28%]">
+          <img id="anime-img" />
+          <button id="addToList">Add to List</button>
         </div>
-        <div class="s1-right flex flex-col justify-start" id="detail-text">
-          <div id="title-text"></div>
+        <div class="s1-right flex flex-col w-[73%]" id="detail-text">
+          <p id="title-text"></p>
           <div class="flex flex-col" id="studio-text">
-            <p>Studio:</p>
+            <p class="font-bold">Studio:</p>
           </div>
         </div>
       </div>
+      <hr
+        style="
+          width: 100%;
+          margin: 50px 0;
+          border: 0;
+          height: 4px;
+          background-color: white;
+        "
+      />
+      <div class="detail-section-2 w-[100%]">
+        <p class="font-bold text-[3.2rem] mb-[50px]">Synopsis</p>
+        <p id="synopsis" class="font-[2rem] ml-10 text-[1.6rem]"></p>
+      </div>
     </div>
   </body>
+  <script src="../script/navBar_script.js"></script>
   <script src="../script/animeDetails.js"></script>
 </html>
