@@ -9,7 +9,7 @@ function userLogin() {
   );
 
   if (loginUser) {
-    sessionStorage.setItem("isLogin", true);
+    localStorage.setItem("isLogin", true);
     document.getElementById("loginMsg").textContent = "Login successful";
     document.getElementById("loginMsg").style.color = "green";
 

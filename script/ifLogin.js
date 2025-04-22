@@ -1,5 +1,5 @@
 function ifLogin() {
-  if (sessionStorage.getItem("isLogin") === "true") {
+  if (localStorage.getItem("isLogin") === "true") {
     document.getElementById("signupLogin").style.display = "none";
   }
 }

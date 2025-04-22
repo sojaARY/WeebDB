@@ -1,14 +1,14 @@
-/*const ifLogin = () => {
-  if (sessionStorage.getItem("isLogin") === "true") {
+const ifUserLogin = () => {
+  if (localStorage.getItem("isLogin") === "true") {
     document.getElementById("signupLogin").style.display = "none";
-    return true;
   } else {
     window.location.href = "../html/signup.html";
-    return false;
   }
-};*/
+};
 
 async function displayAnime() {
+  ifUserLogin();
+
   const animeList = JSON.parse(localStorage.getItem("userAnimeList")) || [];
   const listCont = document.getElementById("user-list");
 
