@@ -29,7 +29,7 @@ async function animeInfo() {
     window.location.href = "../html/frontpg.html";
   }
 
-  //1st Section
+  //1st Section - (Img, button, title, & studio)
   const thumbnail = document.getElementById("anime-img");
   thumbnail.src = anime.images.webp.large_image_url;
 
@@ -43,10 +43,27 @@ async function animeInfo() {
     studioList.appendChild(studioItem);
   });
 
+  //2nd Section (Synopsis)
   const synopsis = document.getElementById("synopsis");
   synopsis.textContent = anime.synopsis;
+}
 
-  //2nd Section
+function addToList() {
+  const btn = document.getElementById("addToList");
+
+  let userAnimeList = JSON.parse(localStorage.getItem("userAnimeList")) || [];
+  const index = userAnimeList.indexOf(anime_MalID);
+
+  if (index === -1) {
+    btn.textContent = "Remove from List";
+    userAnimeList.push(anime_MalID);
+  } else {
+    btn.textContent = "Add to List";
+    userAnimeList.splice(index, 1);
+  }
+
+  localStorage.setItem("userAnimeList", JSON.stringify(userAnimeList));
 }
 
 document.addEventListener("DOMContentLoaded", animeInfo());
+document.getElementById("addToList").addEventListener("click", addToList);

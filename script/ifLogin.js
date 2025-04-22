@@ -4,4 +4,4 @@ function ifLogin() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", ifLogin());
+document.addEventListener("DOMContentLoaded", ifLogin);
