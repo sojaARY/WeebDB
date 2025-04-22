@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=deivce-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>WeebDB - Signup</title>
+    <link rel="stylesheet" href="../style/body_style.css" />
+    <link rel="stylesheet" href="../style/login-signup_style.css" />
+  </head>
+  <body class="body">
+    <div class="content">
+      <form class="signup-box" id="login">
+        <img src="../img/Logo.png" />
+        <p>Welcome back to WeebDB!</p>
+        <a href="signup.html" class="underline">New here?</a>
+        <p id="loginMsg"></p>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          name="email"
+          id="email"
+          required
+        />
+        <label for="password">Password</label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          id="password"
+          required
+        />
+        <button onclick="userLogin()" id="click">Login</button>
+      </form>
+    </div>
+  </body>
+  <script src="../script/userLogin.js"></script>
+  <script>
+    document.getElementById("login").addEventListener("submit", (event) => {
+      event.preventDefault();
+    });
+  </script>
+</html>

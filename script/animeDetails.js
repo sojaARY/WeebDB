@@ -1,5 +1,11 @@
 const anime_MalID = sessionStorage.getItem("selectedAnimeItem");
+
 const animeInfoFetch = async () => {
+  if (!anime_MalID) {
+    console.error("No selected item");
+    return;
+  }
+
   let data;
   try {
     const response = await fetch(
@@ -18,7 +24,10 @@ const animeInfoFetch = async () => {
 
 async function animeInfo() {
   const anime = await animeInfoFetch();
-  // console.log(anime); Debugging
+
+  if (!anime) {
+    window.location.href = "../html/frontpg.html";
+  }
 
   //1st Section
   const thumbnail = document.getElementById("anime-img");
