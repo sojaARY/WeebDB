@@ -12,6 +12,80 @@
     <!--Body Stylesheet-->
     <link rel="stylesheet" href="../style/body_style.css" />
     <link rel="icon" type="image/png" href="../img/Logo.png" />
+    <style>
+      body {
+        background-color: #000;
+        margin: 0;
+        padding: 40px;
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+      }
+  
+      .carousel-wrapper {
+        position: relative;
+        width: 1360px;
+        overflow: hidden;
+        margin: 30px;
+      }
+  
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+  
+      .carousel-track img {
+        min-width: 340px;
+        max-width: 340px;
+        height: 480px;
+        border-radius: 10px;
+        margin-right: 5px;
+      }
+  
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        z-index: 1;
+        border-radius: 8px;
+      }
+  
+      .arrow.left {
+        left: 10px;
+      }
+  
+      .arrow.right {
+        right: 10px;
+      }
+      .category-title{
+        color: white;
+        display: flex;
+        flex-direction: column;
+      }
+  
+    .category-separator{
+      color: white;
+      border-bottom: 3px solid white;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      
+    }
+  
+    h1 {
+        font-size: 30px;
+    }
+  
+    </style>
   </head>
   <body class="body">
     <!--Nav bar-->
@@ -49,6 +123,151 @@
     </nav>
     <!--Anime List-->
     <div class="content">Front Page</div>
+    <div class="carousel-wrapper">
+
+      <div class="category-title">
+        <h1>Popular Anime This Week</h1>
+        <div class="category-separator"></div>
+      </div>
+  
+      <button class="arrow left" onclick="moveLeft('track1')">&#10094;</button>
+      <div class="carousel-track" id="track1">
+        
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="1">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="2">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="3">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="4">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="5">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="6">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="7">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="8">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="9">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="10">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="11">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="12">
+        
+      </div>
+      <button class="arrow right" onclick="moveRight('track1')">&#10095;</button>
+    </div>
+  
+  
+    <div class="carousel-wrapper">
+  
+      <div class="category-title">
+        <h1>Seasonal Anime - Winter 2025</h1>
+        <div class="category-separator"></div>
+      </div>
+  
+      <button class="arrow left" onclick="moveLeft('track2')">&#10094;</button>
+      <div class="carousel-track" id="track2">
+        
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="1">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="2">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="3">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="4">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="5">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="6">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="7">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="8">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="9">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="10">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="11">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="12">
+        
+      </div>
+      <button class="arrow right" onclick="moveRight('track2')">&#10095;</button>
+    </div>
+  
+  
+    <div class="carousel-wrapper">
+  
+      <div class="category-title">
+        <h1>Popular Manga This Week</h1>
+        <div class="category-separator"></div>
+      </div>
+  
+      <button class="arrow left" onclick="moveLeft('track3')">&#10094;</button>
+      <div class="carousel-track" id="track3">
+        
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="1">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="2">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="3">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="4">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="5">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="6">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="7">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="8">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="9">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="10">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="11">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="12">
+        
+      </div>
+      <button class="arrow right" onclick="moveRight('track3')">&#10095;</button>
+    </div>
+  
+  
+    <div class="carousel-wrapper">
+  
+      <div class="category-title">
+        <h1>Seasonal Manga - Winter 2025</h1>
+        <div class="category-separator"></div>
+      </div>
+  
+      <button class="arrow left" onclick="moveLeft('track4')">&#10094;</button>
+      <div class="carousel-track" id="track4">
+        
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="1">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="2">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="3">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="4">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="5">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="6">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="7">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="8">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="9">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="10">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="11">
+        <img src="https://cdn.myanimelist.net/images/anime/1015/138006.jpg" alt="12">
+      
+      </div>
+      <button class="arrow right" onclick="moveRight('track4')">&#10095;</button>
+    </div>
+  
+    <script>
+      const imagesPerView = 4;
+      const imageWidth = 340 + 5; // image + margin
+  
+      const carouselState = {};
+  
+    function updateCarousel(trackId) {
+      const track = document.getElementById(trackId);
+      const totalImages = track.children.length;
+      const maxIndex = Math.ceil(totalImages / imagesPerView) - 1;
+  
+      const currentIndex = carouselState[trackId] || 0;
+      const distance = currentIndex * -imagesPerView * imageWidth;
+      track.style.transform = `translateX(${distance}px)`;
+    }
+  
+    function moveLeft(trackId) {
+      const track = document.getElementById(trackId);
+      const totalImages = track.children.length;
+      const maxIndex = Math.ceil(totalImages / imagesPerView) - 1;
+  
+      carouselState[trackId] = ( (carouselState[trackId] || 0) - 1 + maxIndex + 1 ) % (maxIndex + 1);
+      updateCarousel(trackId);
+    }
+  
+    function moveRight(trackId) {
+      const track = document.getElementById(trackId);
+      const totalImages = track.children.length;
+      const maxIndex = Math.ceil(totalImages / imagesPerView) - 1;
+  
+      carouselState[trackId] = ( (carouselState[trackId] || 0) + 1 ) % (maxIndex + 1);
+      updateCarousel(trackId);
+    }
+    </script>
   </body>
   <script src="../script/navBar_script.js"></script>
   <script src="../script/ifLogin.js"></script>
