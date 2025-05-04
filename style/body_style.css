@@ -16,3 +16,16 @@
   background-color: #7362be;
   color: white;
 }
+
+.filter {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+#filter select{
+  background-color: #6546ee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
