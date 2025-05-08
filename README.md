@@ -2,10 +2,9 @@ Figma file for groupmates. The password is in the link I sent to the groupchat
 https://www.figma.com/design/IpVzkJbi11Mh3NwE2EKhNj/WeebDB?node-id=0-1&p=f&t=N8ngSeihnAwiaqvO-0
 
 **ToDo (Egg):**
-Front page img carosel
+Movie Ratings
 
 **ToDo (All):**
-Front page (Assigned to Alex)
 Manga page
 Anime page
 
@@ -16,6 +15,7 @@ Add params/documentation
 **Assigned to Alex:**
 Search filter
 Algorithm for recommendations
+Front page
 
 **Assigned to Josh:**
 Footer
