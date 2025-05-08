@@ -19,7 +19,7 @@ async function displayItems(itemDiv, searchURL) {
   }
   itemDiv.innerHTML = "";
 
-  const itemCont = series.slice(0, 12);
+  const itemCont = series.slice(0, 4);
   itemCont.forEach((item) => {
     const thumbnailDiv = document.createElement("a");
     thumbnailDiv.href = "#";

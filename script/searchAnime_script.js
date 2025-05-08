@@ -33,13 +33,12 @@ async function displayAnime() {
   data.data.forEach((anime) => {
     const genreMalId = anime.genres;
     const animeCardDiv = document.createElement("a");
-    
+
     animeCardDiv.href = "#";
     animeCardDiv.classList = "item-card";
     anime.genres.forEach((genre) => {
       animeCardDiv.classList.add(`genre-${genre.mal_id}`);
     });
-    
 
     animeCardDiv.addEventListener("click", (event) => {
       event.preventDefault();
