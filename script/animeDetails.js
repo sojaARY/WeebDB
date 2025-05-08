@@ -37,11 +37,19 @@ async function animeInfo() {
   title.textContent = anime.titles[0].title;
 
   const studioList = document.getElementById("studio-text");
+  const ratingDisplay = document.createElement("Ratings:");
+  ratingDisplay.textContent = `${anime.score} / 10`;
+  studioList.appendChild(ratingDisplay);
+
+  const studioTxt = document.createElement("p");
+  studioTxt.classList = "font-bold pt-8";
+  studioTxt.textContent = "Studio";
+  studioList.appendChild(studioTxt);
   anime.studios.forEach((studio) => {
     const studioItem = document.createElement("p");
     studioItem.textContent = "• " + studio.name;
     studioList.appendChild(studioItem);
-  });
+  });  
 
   //2nd Section (Synopsis)
   const synopsis = document.getElementById("synopsis");

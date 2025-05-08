@@ -21,14 +21,20 @@ async function displayItems(itemDiv, searchURL) {
 
   const itemCont = series.slice(0, 12);
   itemCont.forEach((item) => {
-    const thumbnailLink = document.createElement("a");
-    thumbnailLink.href = item.url;
+    const thumbnailDiv = document.createElement("a");
+    thumbnailDiv.href = "#";
+
+    thumbnailDiv.addEventListener("click", (e) => {
+      e.preventDefault();
+      sessionStorage.setItem("selectedAnimeItem", item.mal_id);
+      window.location.href = "../html/animeDetails.html";
+    });
 
     const thumbnail = document.createElement("img");
     thumbnail.src = item.images.webp.large_image_url;
     thumbnail.alt = item.title;
-    thumbnailLink.appendChild(thumbnail);
-    itemDiv.appendChild(thumbnailLink);
+    thumbnailDiv.appendChild(thumbnail);
+    itemDiv.appendChild(thumbnailDiv);
   });
 }
 

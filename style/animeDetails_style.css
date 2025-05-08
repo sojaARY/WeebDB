@@ -30,3 +30,20 @@
   background-color: #433388;
   cursor: pointer;
 }
+
+#sharing {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 50px;
+}
+
+#sharing a {
+  background-color: #433388;
+  border-radius: 20px;
+  margin-right: 20px;
+  padding: 2px;
+  padding-top: 10px;
+  width: 5rem;
+  height: 5rem;
+}
