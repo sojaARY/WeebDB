@@ -95,11 +95,6 @@ hr {
   font-size: 2rem;
   font-weight: bold;
 }
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
 #userReview {
   display: flex;
@@ -133,30 +128,9 @@ hr {
 }
 
 .usernameBG {
-<<<<<<< Updated upstream
-  background-color: #7362be;
-  border: 2px solid;
-  border-radius: 50px;
-}
-=======
   text-decoration: underline;
   border-radius: 50px;
   display: inline;
-<<<<<<< Updated upstream
-=======
-}
-
-#submitReview:hover {
-  border: 2px solid #433388;
-  background-color: #433388;
-  cursor: pointer;
-}
-
-#reviewStatus:hover {
-  border: 2px solid #433388;
-  background-color: #433388;
-  cursor: pointer;
->>>>>>> Stashed changes
 }
 
 #submitReview:hover {
@@ -170,5 +144,15 @@ hr {
   background-color: #433388;
   cursor: pointer;
 }
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
+#submitReview:hover {
+  border: 2px solid #433388;
+  background-color: #433388;
+  cursor: pointer;
+}
+
+#reviewStatus:hover {
+  border: 2px solid #433388;
+  background-color: #433388;
+  cursor: pointer;
+}

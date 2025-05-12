@@ -60,10 +60,7 @@ function saveAnimeReview() {
   };
 
   localStorage.setItem("users", JSON.stringify(users));
-<<<<<<< Updated upstream
-=======
   location.reload();
->>>>>>> Stashed changes
 }
 
 function postAnimeReview() {
@@ -76,11 +73,8 @@ function postAnimeReview() {
     return;
   }
 
-<<<<<<< Updated upstream
-=======
   setTimeout(() => {}, 3000);
 
->>>>>>> Stashed changes
   const animeReviewDetails = user.userAnimeList[selectedAnime];
 
   const reviewTxt = animeReviewDetails.reviewTxt;
@@ -89,13 +83,9 @@ function postAnimeReview() {
   const reviewSection = document.getElementById("reviewSection");
 
   const reviewDiv = document.createElement("div");
-<<<<<<< Updated upstream
-  const topRow = document.createAttribute("div");
-=======
-  reviewDiv.classList = "reviewDiv";
+  reviewDiv.classList = "reviewDiv w-[100%]";
   const topRow = document.createElement("div");
   topRow.classList = "flex w-[100%] flex-row";
->>>>>>> Stashed changes
 
   const userPfp = document.createElement("img");
   userPfp.src = "https://avatar.iran.liara.run/public";
@@ -105,8 +95,6 @@ function postAnimeReview() {
   const userName = document.createElement("h2");
   userName.textContent = "You";
   userName.classList = "usernameBG";
-<<<<<<< Updated upstream
-=======
 
   const status = document.createElement("p");
   status.textContent = reviewStatus;
@@ -126,7 +114,6 @@ function postAnimeReview() {
   reviewDiv.appendChild(topRow);
   reviewDiv.appendChild(txt);
   reviewSection.appendChild(reviewDiv);
->>>>>>> Stashed changes
 }
 
 document.addEventListener("DOMContentLoaded", function () {
