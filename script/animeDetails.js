@@ -62,7 +62,7 @@ function addToListBtn() {
     return;
   }
 
-  let currentUserEmail = localStorage.getItem("currentUser");
+  const currentUserEmail = localStorage.getItem("currentUser");
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const currUserIndex = users.findIndex(
     (user) => user.email === currentUserEmail
@@ -73,26 +73,47 @@ function addToListBtn() {
     return;
   }
 
-  let userAnimeList = users[currUserIndex].userAnimeList || [];
-  const index = userAnimeList.indexOf(anime_MalID);
+  // Make sure userAnimeList exists and is an object
+  if (
+    !users[currUserIndex].userAnimeList ||
+    typeof users[currUserIndex].userAnimeList !== "object" ||
+    Array.isArray(users[currUserIndex].userAnimeList)
+  ) {
+    users[currUserIndex].userAnimeList = {}; // initialize
+  }
+
+  const userAnimeList = users[currUserIndex].userAnimeList;
+  const hasAnime = anime_MalID in userAnimeList;
 
   const s1 = document.getElementById("img_n_addToList");
   const btn = document.createElement("button");
   btn.id = "addToList";
-  btn.textContent = index < 0 ? "Add to List" : "Remove from List";
+  btn.textContent = hasAnime ? "Remove from List" : "Add to List";
 
   btn.addEventListener("click", () => {
     const updatedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const user = updatedUsers.find((user) => user.email === currentUserEmail);
+    const updatedUser = updatedUsers.find(
+      (user) => user.email === currentUserEmail
+    );
 
-    const idx = user.userAnimeList.indexOf(anime_MalID);
+    // Ensure userAnimeList exists
+    if (
+      !updatedUser.userAnimeList ||
+      typeof updatedUser.userAnimeList !== "object" ||
+      Array.isArray(updatedUser.userAnimeList)
+    ) {
+      updatedUser.userAnimeList = {};
+    }
 
-    if (idx < 0) {
-      user.userAnimeList.push(anime_MalID);
-      btn.textContent = "Remove from List";
-    } else {
-      user.userAnimeList.splice(idx, 1);
+    if (anime_MalID in updatedUser.userAnimeList) {
+      delete updatedUser.userAnimeList[anime_MalID];
       btn.textContent = "Add to List";
+    } else {
+      updatedUser.userAnimeList[anime_MalID] = {
+        reviewTxt: "",
+        reviewStatus: "",
+      };
+      btn.textContent = "Remove from List";
     }
 
     localStorage.setItem("users", JSON.stringify(updatedUsers));
@@ -120,7 +141,8 @@ async function displayReviews() {
 
   const reviewSection = document.getElementById("reviewSection");
 
-  for (let i = 0; i < 3; ++i) {
+  const reviewsToShow = Math.min(3, data.length);
+  for (let i = 0; i < reviewsToShow; ++i) {
     const reviewDiv = document.createElement("div");
     reviewDiv.classList = "reviewDiv";
 

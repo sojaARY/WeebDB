@@ -22,9 +22,8 @@
     </div>
     <nav class="nav_bar items-center p-4">
       <div class="flex gap-4">
-        <a href="#">Anime</a>
-        <a href="#">Manga</a>
-        <a href="myList.html">List</a>
+        <a href="../html/frontpg.html">Anime</a>
+        <a href="../html/myList.html">List</a>
       </div>
       <div class="nav_right">
         <div class="nav_right_search flex">
@@ -44,7 +43,7 @@
             ><img src="../img/magnifying_icon.png" class="h-10 self-center"
           /></a>
         </div>
-        <a id="signupLogin">Sign Up/Login</a>
+        <a id="signupLogin"></a>
       </div>
     </nav>
     <!--Selected Anime Details-->
@@ -52,7 +51,6 @@
       <div class="detail-section-1 flex w-[100%]">
         <div class="s1-left flex flex-col w-[30rem]" id="img_n_addToList">
           <img id="anime-img" />
-          <!--<button id="addToList">Add to List</button>-->
         </div>
         <div class="s1-right flex flex-col w-[73%]" id="detail-text">
           <p id="title-text"></p>
@@ -83,11 +81,38 @@
       <hr />
       <div id="reviewSection">
         <!--Display Reviews-->
-        <p class="text-[2rem] font-bold mb-10">Recent reviews</p>
+        <p class="text-[2rem] font-bold mb-10">Recent Reviews</p>
+      </div>
+      <hr />
+      <div id="reviewText" class="flex flex-col text-[2rem] font-bold mb-10">
+        <p id="leaveAReview" class="self-center">Leave a Review!</p>
+        <p id="alert"></p>
+      </div>
+      <div id="reviewArea" class="w-[100%] flex-col">
+        <div id="addComment" class="w-[100%] h-auto">
+          <div>
+            <textarea
+              id="userReview"
+              placeholder="Write your review here..."
+              class="flex bg-white w-[100%] rounded-lg min-h-[10rem]"
+            ></textarea>
+          </div>
+          <div class="flex justify-end">
+            <select id="reviewStatus" class="text-white text-[2rem]" required>
+              <option value="recommended">Recommended</option>
+              <option value="notRecommended">Not Recommended</option>
+              <option value="mixed">Mixed</option>
+            </select>
+            <button id="submitReview" onclick="saveAnimeReview()">
+              Submit
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
   <script src="../script/ifLogin.js"></script>
   <script src="../script/navBar_script.js"></script>
   <script src="../script/animeDetails.js"></script>
+  <script src="../script/postAnimeReview.js"></script>
 </html>
