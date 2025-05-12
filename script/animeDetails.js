@@ -56,21 +56,49 @@ async function animeInfo() {
   synopsis.textContent = anime.synopsis;
 }
 
-function addToList() {
-  const btn = document.getElementById("addToList");
-
-  let userAnimeList = JSON.parse(localStorage.getItem("userAnimeList")) || [];
-  const index = userAnimeList.indexOf(anime_MalID);
-
-  if (index === -1) {
-    btn.textContent = "Remove from List";
-    userAnimeList.push(anime_MalID);
-  } else {
-    btn.textContent = "Add to List";
-    userAnimeList.splice(index, 1);
+function addToListBtn() {
+  if (localStorage.getItem("isLogin") === "false") {
+    window.location.href = "../html/signup.html";
+    return;
   }
 
-  localStorage.setItem("userAnimeList", JSON.stringify(userAnimeList));
+  let currentUserEmail = localStorage.getItem("currentUser");
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const currUserIndex = users.findIndex(
+    (user) => user.email === currentUserEmail
+  );
+
+  if (currUserIndex === -1) {
+    console.error("Logged in user not found");
+    return;
+  }
+
+  let userAnimeList = users[currUserIndex].userAnimeList || [];
+  const index = userAnimeList.indexOf(anime_MalID);
+
+  const s1 = document.getElementById("img_n_addToList");
+  const btn = document.createElement("button");
+  btn.id = "addToList";
+  btn.textContent = index < 0 ? "Add to List" : "Remove from List";
+
+  btn.addEventListener("click", () => {
+    const updatedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const user = updatedUsers.find((user) => user.email === currentUserEmail);
+
+    const idx = user.userAnimeList.indexOf(anime_MalID);
+
+    if (idx < 0) {
+      user.userAnimeList.push(anime_MalID);
+      btn.textContent = "Remove from List";
+    } else {
+      user.userAnimeList.splice(idx, 1);
+      btn.textContent = "Add to List";
+    }
+
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+  });
+
+  s1.appendChild(btn);
 }
 
 async function displayReviews() {
@@ -107,8 +135,19 @@ async function displayReviews() {
     const userName = document.createElement("h2");
     userName.textContent = data[i].user.username;
 
+    const recommended = document.createElement("p");
+    recommended.textContent = data[i].tags[0];
+    recommended.classList.add("ml-auto");
+
+    if (recommended.textContent === "Recommended") {
+      recommended.style.color = "lime";
+    } else {
+      recommended.style.color = "red";
+    }
+
     topRow.appendChild(userPfp);
     topRow.appendChild(userName);
+    topRow.appendChild(recommended);
     reviewDiv.appendChild(topRow);
 
     const fullText = data[i].review;
@@ -154,4 +193,4 @@ function noReview() {
 
 document.addEventListener("DOMContentLoaded", animeInfo);
 document.addEventListener("DOMContentLoaded", displayReviews);
-document.getElementById("addToList").addEventListener("click", addToList);
+document.addEventListener("DOMContentLoaded", addToListBtn);

@@ -47,10 +47,12 @@ async function displayCall() {
     "https://api.jikan.moe/v4/top/anime?filter=airing"
   );
   displayItems(seasonalAnime, "https://api.jikan.moe/v4/seasons/now");
+  /*
   displayItems(
     publishingManga,
     "https://api.jikan.moe/v4/top/manga?filter=publishing"
   );
+  */
 }
 
 document.addEventListener("DOMContentLoaded", displayCall);

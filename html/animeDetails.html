@@ -44,15 +44,15 @@
             ><img src="../img/magnifying_icon.png" class="h-10 self-center"
           /></a>
         </div>
-        <a href="../html/signup.html" id="signupLogin">Sign Up/Login</a>
+        <a id="signupLogin">Sign Up/Login</a>
       </div>
     </nav>
     <!--Selected Anime Details-->
     <div class="content flex flex-col p-25">
       <div class="detail-section-1 flex w-[100%]">
-        <div class="s1-left flex flex-col w-[30rem]">
+        <div class="s1-left flex flex-col w-[30rem]" id="img_n_addToList">
           <img id="anime-img" />
-          <button id="addToList">Add to List</button>
+          <!--<button id="addToList">Add to List</button>-->
         </div>
         <div class="s1-right flex flex-col w-[73%]" id="detail-text">
           <p id="title-text"></p>
@@ -87,7 +87,7 @@
       </div>
     </div>
   </body>
+  <script src="../script/ifLogin.js"></script>
   <script src="../script/navBar_script.js"></script>
   <script src="../script/animeDetails.js"></script>
-  <script src="../script/ifLogin.js"></script>
 </html>

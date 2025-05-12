@@ -2,6 +2,7 @@ const ifUserLogin = () => {
   if (localStorage.getItem("isLogin") === "true") {
     document.getElementById("signupLogin").style.display = "none";
   } else {
+    localStorage.removeItem("currentUser");
     window.location.href = "../html/signup.html";
   }
 };
@@ -9,7 +10,12 @@ const ifUserLogin = () => {
 async function displayAnime() {
   ifUserLogin();
 
-  const animeList = JSON.parse(localStorage.getItem("userAnimeList")) || [];
+  const currentUserEmail = localStorage.getItem("currentUser");
+  const allUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  const currentUser = allUsers.find((user) => user.email === currentUserEmail);
+
+  const animeList = currentUser.userAnimeList;
   const listCont = document.getElementById("user-list");
 
   for (const animeID of animeList) {

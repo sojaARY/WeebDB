@@ -20,3 +20,6 @@ Front page
 **Assigned to Josh:**
 Footer
 Source/credits page
+
+**To Do Today:**
+Fix display user list to reflect new user storage method

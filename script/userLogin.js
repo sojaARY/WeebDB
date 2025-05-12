@@ -13,6 +13,8 @@ function userLogin() {
     document.getElementById("loginMsg").textContent = "Login successful";
     document.getElementById("loginMsg").style.color = "green";
 
+    localStorage.setItem("currentUser", loginEmail);
+
     setTimeout(() => {
       window.location.href = "../html/frontpg.html";
     }, 1000);

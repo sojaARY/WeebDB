@@ -2,9 +2,9 @@ function userSignUp() {
   const newEmail = document.getElementById("email").value.trim();
   const newPass = document.getElementById("password").value.trim();
 
-  let users = JSON.parse(localStorage.getItem("users")) || [];
+  let data = JSON.parse(localStorage.getItem("users")) || [];
 
-  const existingUser = users.find((user) => user.email === newEmail);
+  const existingUser = data.find((user) => user.email === newEmail);
   if (existingUser) {
     document.getElementById("registerMsg").textContent = "Email already taken";
     document.getElementById("registerMsg").style.color = "red";
@@ -12,10 +12,13 @@ function userSignUp() {
     const newUser = {
       email: newEmail,
       password: newPass,
+      userAnimeList: [],
+      userMangaList: [],
     };
-    users.push(newUser);
 
-    localStorage.setItem("users", JSON.stringify(users));
+    data.push(newUser);
+    localStorage.setItem("users", JSON.stringify(data));
+
     document.getElementById("registerMsg").textContent =
       "Registration successful";
     document.getElementById("registerMsg").style.color = "green";
