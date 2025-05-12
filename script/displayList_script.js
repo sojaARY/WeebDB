@@ -18,7 +18,7 @@ async function displayAnime() {
   const animeList = currentUser.userAnimeList;
   const listCont = document.getElementById("user-list");
 
-  for (const animeID of animeList) {
+  for (const animeID of Object.keys(animeList)) {
     try {
       const temp = await fetch(
         `https://api.jikan.moe/v4/anime/${animeID}`

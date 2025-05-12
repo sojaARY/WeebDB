@@ -23,3 +23,14 @@ Source/credits page
 
 **To Do Today:**
 Fix display user list to reflect new user storage method
+
+<!--------------------------App Description, etc. Do not delete------------------------->
+
+WeebDB
+A database centered around anime that allows users to review and save a list of anime.
+
+Instrucitons:
+
+To look for specific anime:
+
+1. Type
