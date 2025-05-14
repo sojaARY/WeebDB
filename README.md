@@ -1,36 +1,33 @@
-Figma file for groupmates. The password is in the link I sent to the groupchat
-https://www.figma.com/design/IpVzkJbi11Mh3NwE2EKhNj/WeebDB?node-id=0-1&p=f&t=N8ngSeihnAwiaqvO-0
+# WeebDB
 
-**ToDo (Egg):**
-Movie Ratings
+_Your Ultimate Anime Companion_
 
-**ToDo (All):**
-Manga page
-Anime page
+WeebDB is an anime database and community hub where users can post reviews, manage personalized watchlists, and stay up-to-date with the latest anime releases.
 
-**ToDo (After website is finished)**
-Clean up code
-Add params/documentation
+Powered by the _Jikan API_, WeebDB delivers accurate, real-time data sourced directly from MyAnimeList.  
+Whether you're a casual viewer or a dedicated otaku, WeebDB helps you keep track of your anime journey and discover new favorites with ease.
 
-**Assigned to Alex:**
-Search filter
-Algorithm for recommendations
-Front page
+---
 
-**Assigned to Josh:**
-Footer
-Source/credits page
+## Features
 
-**To Do Today:**
-Fix display user list to reflect new user storage method
+- **Browse Anime** – Discover trending, seasonal, and top-rated anime.
+- **Post Reviews** – Share your thoughts and read reviews from other fans.
+- **Manage Watchlist** – Track what you're watching, planning to watch, or have finished.
+- **Stay Up-to-Date** – View new release info using live data from the Jikan API.
+- **Advanced Search** – Find anime by title, genre, season, and more.
 
-<!--------------------------App Description, etc. Do not delete------------------------->
+---
 
-WeebDB
-A database centered around anime that allows users to review and save a list of anime.
+## Tech Stack
 
-Instrucitons:
+- **Tools Used:** HTML, CSS, JavaScript, [Tailwind](https://tailwindcss.com/)
+- **API:** [Jikan API](https://jikan.moe/)
 
-To look for specific anime:
+---
 
-1. Type
+## Links
+
+- **Jikan API:** [https://jikan.moe/](https://jikan.moe/)
+- **MyAnimeList:** [https://myanimelist.net/](https://myanimelist.net/)
+- **Tailwind:** [https://tailwindcss.com/](https://tailwindcss.com/)
