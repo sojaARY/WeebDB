@@ -56,12 +56,15 @@ async function animeInfo() {
   synopsis.textContent = anime.synopsis;
 }
 
-function addToListBtn() {
+function ifLogin() {
   if (localStorage.getItem("isLogin") === "false") {
     window.location.href = "../html/signup.html";
-    return;
+    return 0;
   }
+  return 1;
+}
 
+function addToListBtn() {
   const currentUserEmail = localStorage.getItem("currentUser");
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const currUserIndex = users.findIndex(
@@ -117,6 +120,7 @@ function addToListBtn() {
     }
 
     localStorage.setItem("users", JSON.stringify(updatedUsers));
+    if(!ifLogin()) return;
   });
 
   s1.appendChild(btn);
