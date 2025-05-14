@@ -24,18 +24,49 @@ async function displayAnime() {
     console.error("Empty search results.");
     return;
   }
-  console.log(data);
 
-  //Where to insert the anime cards
   const animeListId = document.getElementById("anime-list");
+  animeListId.innerHTML = ""; 
 
-  //Create a card for each anime
-  data.data.forEach((anime) => {
-    const genreMalId = anime.genres;
+  
+  let animeArray = data.data;
+
+  
+  document.getElementById("sortDropdown").addEventListener("change", function () {
+    const sortType = this.value;
+
+    animeArray.sort((a, b) => {
+      switch (sortType) {
+        case "popularity":
+          return a.popularity - b.popularity; 
+        case "release_asc":
+          return new Date(a.aired.from || "1900-01-01") - new Date(b.aired.from || "1900-01-01");
+        case "release_desc":
+          return new Date(b.aired.from || "1900-01-01") - new Date(a.aired.from || "1900-01-01");
+        case "rating_asc":
+          return (a.score || 0) - (b.score || 0);
+        case "rating_desc":
+          return (b.score || 0) - (a.score || 0);
+        default:
+          return 0;
+      }
+    });
+
+    renderAnimeList(animeArray); 
+  });
+
+  renderAnimeList(animeArray); 
+}
+
+function renderAnimeList(animeList) {
+  const animeListId = document.getElementById("anime-list");
+  animeListId.innerHTML = "";
+
+  animeList.forEach((anime) => {
     const animeCardDiv = document.createElement("a");
-
     animeCardDiv.href = "#";
     animeCardDiv.classList = "item-card";
+
     anime.genres.forEach((genre) => {
       animeCardDiv.classList.add(`genre-${genre.mal_id}`);
     });
@@ -48,20 +79,20 @@ async function displayAnime() {
 
     const animeImgDiv = document.createElement("img");
     animeImgDiv.classList = "item-card-img";
-    animeImgDiv.src = anime.images.jpg.image_url;
+    animeImgDiv.src = anime.images?.jpg?.image_url || "default.jpg";
 
     const animeCardTextSectionDiv = document.createElement("div");
     animeCardTextSectionDiv.classList = "item-card-text-section";
+
     const animeCardHeadTextP = document.createElement("p");
     animeCardHeadTextP.classList = "item-card-h-text";
     animeCardHeadTextP.textContent = anime.title;
 
     const animeCardContentTextP = document.createElement("p");
     animeCardContentTextP.classList = "item-card-c-text";
-    animeCardContentTextP.textContent = anime.synopsis
-      ? anime.synopsis.split(" ").slice(0, 47).join(" ") +
-        (anime.synopsis.split(" ").length > 50 ? "..." : "")
-      : "No synopsis available.";
+    animeCardContentTextP.textContent = anime.synopsis?.length > 300
+      ? anime.synopsis.slice(0, 300) + "..."
+      : anime.synopsis || "No synopsis available.";
 
     animeListId.appendChild(animeCardDiv);
     animeCardDiv.appendChild(animeImgDiv);
@@ -70,5 +101,6 @@ async function displayAnime() {
     animeCardTextSectionDiv.appendChild(animeCardContentTextP);
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", displayAnime());

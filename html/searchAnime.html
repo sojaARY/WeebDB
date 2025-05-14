@@ -53,14 +53,27 @@
         style="margin: 20px 0"
       >
         <p>Anime List</p>
+        <div class = "drops">
+          <!--Genre Filter-->
+          <div class="filter">
+            <p>Filter by </p>
+            <div class="dropdown">
 
-        <!--Genre Filter-->
-        <div class="filter">
-          <p>Sort by </p>
-          <div class="dropdown">
+              <p id="filter"></p>
 
-            <p id="filter"></p>
-
+            </div>
+          </div>
+          <!--Sorting Filter-->
+          <div class="filter flex items-center gap-2" id = "sort-drop">
+            <p>Sort by </p>
+            <select id="sortDropdown">
+              <option value="default">Default</option>
+              <option value="popularity">Popularity (Descending)</option>
+              <option value="release_asc">Release Date (Oldest First)</option>
+              <option value="release_desc">Release Date (Newest First)</option>
+              <option value="rating_asc">Rating (Low to High)</option>
+              <option value="rating_desc">Rating (High to Low)</option>
+            </select>
           </div>
         </div>
       </div>
@@ -74,8 +87,4 @@
   <script src="../script/ifLogin.js"></script>
   <script src=" ../script/genreFilter.js"></script>
 </html>
-  </body>
-  <script src="../script/navBar_script.js"></script>
-  <script src="../script/searchAnime_script.js"></script>
-  <script src="../script/ifLogin.js"></script>
-</html>
+ 
