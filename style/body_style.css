@@ -17,11 +17,24 @@
   color: white;
 }
 
+.drops {
+  display: flex;
+  flex-direction: column;
+}
+
 .filter {
   display: flex;
   flex-direction: row;
   
 }
+
+#sortDropdown{
+  background-color: #6546ee;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 
 #filter select{
   background-color: #6546ee;
