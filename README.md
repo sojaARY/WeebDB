@@ -21,7 +21,7 @@ Whether you're a casual viewer or a dedicated otaku, WeebDB helps you keep track
 
 ## Tech Stack
 
-- **Tools Used:** HTML, CSS, JavaScript
+- **Tools Used:** HTML, CSS, JavaScript, [Tailwind](https://tailwindcss.com/)
 - **API:** [Jikan API](https://jikan.moe/)
 
 ---
@@ -30,3 +30,4 @@ Whether you're a casual viewer or a dedicated otaku, WeebDB helps you keep track
 
 - **Jikan API:** [https://jikan.moe/](https://jikan.moe/)
 - **MyAnimeList:** [https://myanimelist.net/](https://myanimelist.net/)
+- **Tailwind:** [https://tailwindcss.com/](https://tailwindcss.com/)
