@@ -1,20 +1,34 @@
 // Fetch and populate genre dropdown
 fetch("https://api.jikan.moe/v4/genres/anime")
-  .then((response) => response.json())
-  .then((info) => {
+  .then(response => response.json())
+  .then(info => {
     const genres = info.data;
-    let text = `<select id="genreDropdown">`;
-    text += `<option value="all">Show All</option>`;
+    const genreDropdown = document.getElementById("genreDropdown");
+
     for (let genre of genres) {
-      text += `<option value="genre-${genre.mal_id}">${genre.name}</option>`;
+      const option = document.createElement("option");
+      option.value = `genre-${genre.mal_id}`;
+      option.textContent = genre.name;
+      genreDropdown.appendChild(option);
     }
-    text += "</select>";
-    document.getElementById("filter").innerHTML = text;
+
+    genreDropdown.addEventListener("change", function () {
+      const selected = this.value;
+      const cards = document.getElementsByClassName("item-card");
+
+      for (let card of cards) {
+        card.style.display = "none";
+        if (selected === "all" || card.classList.contains(selected)) {
+          card.style.display = "flex";
+        }
+      }
+    });
   })
-  .catch((error) => {
+  .catch(error => {
     console.error("Error fetching genres:", error);
-    document.getElementById("filter").textContent = "Failed to load genres.";
+    // Optionally, display an error message near the dropdown
   });
+
 
 // Unified filter function
 function applyAllFilters() {
