@@ -48,35 +48,57 @@
     </nav>
     <!--Anime List-->
     <div class="content">
-      <div
-        class="head-text flex justify-between w-[80vw]"
-        style="margin: 20px 0"
-      >
-        <p>Anime List</p>
-        <div class = "drops">
-          <!--Genre Filter-->
-          <div class="filter">
-            <p>Filter by </p>
-            <div class="dropdown">
+      <div class="head-text">
+  <p>Anime List</p>
+  <div class="drops">
+    <div class="filter">
+      <label for="genreDropdown">Genre</label>
+      <select id="genreDropdown">
+        <option value="all">Show All</option>
+        
+      </select>
+    </div>
 
-              <p id="filter"></p>
+    <div class="filter">
+      <label for="releaseFilterType">Release Year</label>
+      <select id="releaseFilterType">
+        <option value="all">All</option>
+        <option value="before">Before</option>
+        <option value="after">After</option>
+        <option value="exact">Exact</option>
+      </select>
+      <input
+        type="number"
+        id="releaseFilterYear"
+        placeholder="Year"
+      />
+    </div>
 
-            </div>
-          </div>
-          <!--Sorting Filter-->
-          <div class="filter flex items-center gap-2" id = "sort-drop">
-            <p>Sort by </p>
-            <select id="sortDropdown">
-              <option value="default">Default</option>
-              <option value="popularity">Popularity (Descending)</option>
-              <option value="release_asc">Release Date (Oldest First)</option>
-              <option value="release_desc">Release Date (Newest First)</option>
-              <option value="rating_asc">Rating (Low to High)</option>
-              <option value="rating_desc">Rating (High to Low)</option>
-            </select>
-          </div>
-        </div>
-      </div>
+    <div class="filter">
+      <label for="ratingFilter">Rating</label>
+      <select id="ratingFilter">
+        <option value="all">Show All</option>
+        <option value="low">Below 5</option>
+        <option value="medium">5 - 7</option>
+        <option value="high">Above 7</option>
+      </select>
+    </div>
+
+    <div class="filter">
+      <label for="sortDropdown">Sort by</label>
+      <select id="sortDropdown">
+        <option value="default">Default</option>
+        <option value="popularity">Popularity (Descending)</option>
+        <option value="release_asc">Release Date (Oldest First)</option>
+        <option value="release_desc">Release Date (Newest First)</option>
+        <option value="rating_asc">Rating (Low to High)</option>
+        <option value="rating_desc">Rating (High to Low)</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
       <div id="anime-list">
         <!--Place Anime List-->
       </div>

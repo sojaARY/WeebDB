@@ -66,6 +66,8 @@ function renderAnimeList(animeList) {
     const animeCardDiv = document.createElement("a");
     animeCardDiv.href = "#";
     animeCardDiv.classList = "item-card";
+    animeCardDiv.setAttribute("data-release", anime.aired?.from || "1900-01-01");
+    animeCardDiv.setAttribute("data-rating", anime.score || "0");
 
     anime.genres.forEach((genre) => {
       animeCardDiv.classList.add(`genre-${genre.mal_id}`);
@@ -90,9 +92,10 @@ function renderAnimeList(animeList) {
 
     const animeCardContentTextP = document.createElement("p");
     animeCardContentTextP.classList = "item-card-c-text";
-    animeCardContentTextP.textContent = anime.synopsis?.length > 300
-      ? anime.synopsis.slice(0, 300) + "..."
-      : anime.synopsis || "No synopsis available.";
+    animeCardContentTextP.textContent =
+      anime.synopsis?.length > 300
+        ? anime.synopsis.slice(0, 300) + "..."
+        : anime.synopsis || "No synopsis available.";
 
     animeListId.appendChild(animeCardDiv);
     animeCardDiv.appendChild(animeImgDiv);
@@ -101,6 +104,7 @@ function renderAnimeList(animeList) {
     animeCardTextSectionDiv.appendChild(animeCardContentTextP);
   });
 }
+
 
 
 document.addEventListener("DOMContentLoaded", displayAnime());
