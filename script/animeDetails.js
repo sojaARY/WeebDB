@@ -78,7 +78,7 @@ function addToCategoryBtn() {
 
   const user = users[currUserIndex];
 
-  // Here’s the full check restored:
+  
   if (
     !user.userAnimeList ||
     typeof user.userAnimeList !== "object" ||
