@@ -51,6 +51,22 @@
     <!--User's List-->
     <div class="content">
       User's Anime List
+      <div class="category-controls">
+  <div class="category-controls-row">
+    <label for="categorySelect">Select Category:</label>
+    <select id="categorySelect" onchange="displayAnime(this.value)"></select>
+  </div>
+
+  <div class="category-controls-row">
+    <input type="text" id="newCategoryName" placeholder="New category name" />
+    <button onclick="addNewCategory()">Add Category</button>
+    <button onclick="deleteCurrentCategory()">Delete Category</button>
+  </div>
+</div>
+
+
+
+
       <div id="user-list">
         <!--Insert user's list-->
       </div>

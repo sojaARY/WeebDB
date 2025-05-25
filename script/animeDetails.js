@@ -64,7 +64,7 @@ function ifLogin() {
   return 1;
 }
 
-function addToListBtn() {
+function addToCategoryBtn() {
   const currentUserEmail = localStorage.getItem("currentUser");
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const currUserIndex = users.findIndex(
@@ -76,53 +76,65 @@ function addToListBtn() {
     return;
   }
 
-  // Make sure userAnimeList exists and is an object
+  const user = users[currUserIndex];
+
+  // Here’s the full check restored:
   if (
-    !users[currUserIndex].userAnimeList ||
-    typeof users[currUserIndex].userAnimeList !== "object" ||
-    Array.isArray(users[currUserIndex].userAnimeList)
+    !user.userAnimeList ||
+    typeof user.userAnimeList !== "object" ||
+    Array.isArray(user.userAnimeList)
   ) {
-    users[currUserIndex].userAnimeList = {}; // initialize
+    user.userAnimeList = {};
   }
 
-  const userAnimeList = users[currUserIndex].userAnimeList;
-  const hasAnime = anime_MalID in userAnimeList;
-
   const s1 = document.getElementById("img_n_addToList");
+
+  // dropdown for categories
+  const categorySelect = document.createElement("select");
+  categorySelect.id = "categorySelect";
+  categorySelect.className = "border border-gray-400 p-1 rounded mr-2";
+
+  const categories = Object.keys(user.userAnimeList);
+  if (categories.length === 0) {
+    const option = document.createElement("option");
+    option.textContent = "No categories available";
+    option.disabled = true;
+    categorySelect.appendChild(option);
+  } else {
+    categories.forEach((category) => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categorySelect.appendChild(option);
+    });
+  }
+
+  // add button
   const btn = document.createElement("button");
-  btn.id = "addToList";
-  btn.textContent = hasAnime ? "Remove from List" : "Add to List";
+  btn.id = "addToCategoryBtn";
+  btn.textContent = "Add to Category";
+  btn.className = "filter-btn";
 
   btn.addEventListener("click", () => {
-    const updatedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const updatedUser = updatedUsers.find(
-      (user) => user.email === currentUserEmail
-    );
+    const selectedCategory = categorySelect.value;
 
-    // Ensure userAnimeList exists
-    if (
-      !updatedUser.userAnimeList ||
-      typeof updatedUser.userAnimeList !== "object" ||
-      Array.isArray(updatedUser.userAnimeList)
-    ) {
-      updatedUser.userAnimeList = {};
+    if (!user.userAnimeList[selectedCategory]) {
+      user.userAnimeList[selectedCategory] = {};
     }
 
-    if (anime_MalID in updatedUser.userAnimeList) {
-      delete updatedUser.userAnimeList[anime_MalID];
-      btn.textContent = "Add to List";
-    } else {
-      updatedUser.userAnimeList[anime_MalID] = {
-        reviewTxt: "",
-        reviewStatus: "",
-      };
-      btn.textContent = "Remove from List";
+    if (anime_MalID in user.userAnimeList[selectedCategory]) {
+      alert("This anime is already in the selected category.");
+      return;
     }
 
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-    if(!ifLogin()) return;
+    user.userAnimeList[selectedCategory][anime_MalID] = true;
+
+    users[currUserIndex] = user;
+    localStorage.setItem("users", JSON.stringify(users));
+    alert(`Added to category: ${selectedCategory}`);
   });
 
+  s1.appendChild(categorySelect);
   s1.appendChild(btn);
 }
 
@@ -219,4 +231,4 @@ function noReview() {
 
 document.addEventListener("DOMContentLoaded", animeInfo);
 document.addEventListener("DOMContentLoaded", displayReviews);
-document.addEventListener("DOMContentLoaded", addToListBtn);
+document.addEventListener("DOMContentLoaded", addToCategoryBtn);
